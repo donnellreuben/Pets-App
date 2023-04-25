@@ -2,29 +2,39 @@ class PetsController < ApplicationController
 
 # NEW
   def new
-    @pet = Pet.new
+  # @pet = Pet.new
+    @pet = current_user.pets
   end
 
 # INDEX
   def index
-    @pets = Pet.all
-    render :index
+    @pets = current_user.pets
   end
+
 
 # CREATE
   def create 
-    @pet = Pet.new(
+    # @pet = Pet.new(
+    #   name: params[:pet][:name],
+    #   breed: params[:pet][:breed],
+    #   image: params[:pet][:image]
+    # )
+    # @pet.save
+    @pet = current_user.pets.new(
       name: params[:pet][:name],
       breed: params[:pet][:breed],
       image: params[:pet][:image]
     )
-    @pet.save
-    redirect_to "/pets"
+    if @pet.save
+      redirect_to pets_path, notice: "Pet was successfully created."
+    else
+      render :new
+    end
   end
 
 # SHOW
   def show
-    @pet = Pet.find(params[:id])
+    @pet = current_user.pets.find(params[:id])
     render :show
   end
 
