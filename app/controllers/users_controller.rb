@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+
+# NEW 
   def new
     @user = User.new
     render template: "users/new"
   end
 
+# CREATE
   def create
     @user = User.new(
       name: params[:user][:name],
@@ -13,7 +16,7 @@ class UsersController < ApplicationController
      )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to "/"
+      redirect_to "/login", notice: "User was successfully created" #EDIT THIS REDIRECT TO SIGNUP RN
     else
       render :new, status: :unprocessable_entity
     end
