@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An simple Application that allows you to create pets, display them with images and edit/update/delete them. Kind of like a pet storage app.
 
-Things you may want to cover:
+Use localhost:3000/pets.json in HTTPie to see database in API format.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
