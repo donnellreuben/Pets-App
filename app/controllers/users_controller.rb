@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+#------------------SIGNUP--------------------#
 # NEW 
   def new
     @user = User.new

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
- 
+#------------------LOGIN---------------------#
 # NEW 
   def new
     render template: "sessions/new"
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to "/"
+      redirect_to "/" 
     else
       redirect_to "/login"
     end
